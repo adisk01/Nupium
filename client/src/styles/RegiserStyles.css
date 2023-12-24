@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #f0f0f0; /* Set a background color for better visibility */
 }
 
 .register-form {
@@ -12,16 +13,19 @@
   padding: 30px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #f0f0f0;
+  background-color: #fff; /* Set a white background for the form */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
 
 .register-form h3 {
   text-align: center;
   margin-bottom: 20px;
+  color: #1890ff; /* Use the primary color for the heading */
 }
 
 .register-form label {
   font-weight: bold;
+  color: #333; /* Set a dark color for labels */
 }
 
 .register-form .ant-input {

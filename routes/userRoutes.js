@@ -3,12 +3,13 @@ const {
   loginController,
   registerController,
   authController,
+  registereduserController,
 } = require("../controllers/userCtrl");
 const authMiddlewares = require("../middlewares/authMiddlewares");
 
 //router onject
 const router = express.Router();
-
+router.post("/registereduser",registereduserController);
 //routes
 //LOGIN || POST
 router.post("/login", loginController);

@@ -1,4 +1,5 @@
 const userModel = require("../models/userModels");
+const registereduserModel = require("../models/registereduserModels");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -26,6 +27,43 @@ const registerController = async (req, res) => {
     });
   }
 };
+//registered user controller
+
+const registereduserController= async (req, res) => {
+  try {
+    // Extract data from the request body
+    const {
+      firstname,
+      middlename,
+      lastname,
+      country,
+      contact,
+      program,
+      category,
+      startdate,
+    } = req.body;
+
+    // Create a new instance of the registereduserModel
+    const newUser = new registereduserModel({
+      firstname,
+      middlename,
+      lastname,
+      country,
+      contact,
+      program,
+      category,
+      startdate,
+    });
+
+    // Save the user to the database
+    const savedUser = await newUser.save();
+
+    res.json({ success: true, message: "User registered successfully", data: savedUser });
+  } catch (error) {
+    console.error("Error during user registration:", error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+}
 // login callback
 const loginController = async (req, res) => {
   try {
@@ -80,4 +118,4 @@ const authController = async (req,res) =>{
     })
   }
 }
-module.exports = { loginController, registerController , authController };
+module.exports = { loginController, registerController , authController ,registereduserController};
