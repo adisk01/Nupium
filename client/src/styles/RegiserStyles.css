@@ -2,30 +2,32 @@
 
 .form-container {
   display: flex;
+  padding: 10px;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0; /* Set a background color for better visibility */
+  min-height: 80vh; /* Change height to min-height */
+  margin: 0; /* Remove default margin */
 }
 
 .register-form {
-  width: 400px;
+  width: 100%; /* Make the form width 100% */
+  max-width: 400px; /* Set a maximum width */
   padding: 30px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #fff; /* Set a white background for the form */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  background-color: #f0f0f0;
+  box-sizing: border-box; /* Include padding and border in the width */
 }
 
 .register-form h3 {
   text-align: center;
   margin-bottom: 20px;
-  color: #1890ff; /* Use the primary color for the heading */
 }
 
 .register-form label {
   font-weight: bold;
-  color: #333; /* Set a dark color for labels */
+  display: block; /* Display labels as blocks for better spacing */
+  margin-bottom: 8px; /* Add margin below labels */
 }
 
 .register-form .ant-input {
@@ -37,14 +39,12 @@
 }
 
 .m-2 {
-  display: block;
-  margin: 10px 0;
   text-align: center;
   color: #1890ff;
+  margin-top: 10px; /* Add margin to the top */
 }
 
 .btn-primary {
-  display: block;
   width: 100%;
   padding: 8px 16px;
   border: none;

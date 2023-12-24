@@ -1,34 +1,36 @@
+// Register.jsx
 import React from "react";
 import "../styles/RegiserStyles.css";
 import { Form, Input, Select, DatePicker, message } from "antd";
-
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+
 const { Option } = Select;
+
 const Register = () => {
   const navigate = useNavigate();
 
   const onfinishHandler = async (values) => {
     try {
-      console.log("Values in registereduser",values);
+      console.log("Values in registereduser", values);
       const registeredData = {
         firstname: values.firstname,
         middlename: values.middlename,
         lastname: values.lastname,
         country: values.country,
-        contactNumber: values.contactNumber,  // Corrected field name
+        contactNumber: values.contactNumber,
         program: values.program,
-        candidateCategory: values.candidateCategory,   // Corrected field name
-        startDate: values.startDate,          // Corrected field name
+        candidateCategory: values.candidateCategory,
+        startDate: values.startDate,
       };
-      const resp = await axios.post("http://localhost:8080/api/v1/user/registereduser", registeredData);
-      
+      axios.post("http://localhost:8080/api/v1/user/registereduser", registeredData);
+
       const postData = {
         name: `${values.firstname} ${values.middlename ? values.middlename + ' ' : ''}${values.lastname}`,
-        email:values.email,
-        password:values.password,
+        email: values.email,
+        password: values.password,
       };
-      console.log("post data" , postData);
+      console.log("post data", postData);
       const res = await axios.post("http://localhost:8080/api/v1/user/register", postData);
       if (res.data.success) {
         message.success("Register Successfully!");
@@ -41,6 +43,7 @@ const Register = () => {
       message.error("Something Went Wrong");
     }
   };
+
   return (
     <>
       <div className="form-container">
@@ -87,12 +90,14 @@ const Register = () => {
           <Form.Item label="Start Date" name="startDate" required>
             <DatePicker />
           </Form.Item>
-          <Link to="/login" className="m-2">
-            Already a user? Login here
-          </Link>
-          <button className="btn btn-primary" type="submit">
-            Register
-          </button>
+          <Form.Item>
+            <Link to="/login" className="m-2">
+              Already a user? Login here
+            </Link>
+            <button className="btn btn-primary" type="submit">
+              Register
+            </button>
+          </Form.Item>
         </Form>
       </div>
     </>
