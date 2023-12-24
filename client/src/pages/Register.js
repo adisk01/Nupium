@@ -10,16 +10,25 @@ const Register = () => {
 
   const onfinishHandler = async (values) => {
     try {
-      const resp = await axios.post("http://localhost:8080/api/v1/user/registereduser", values);
-      console.log("Response from server:", resp);
-      const { firstname, middlename, lastname, email, password } = values;
-
-      const postData = {
-        name: `${firstname} ${middlename ? middlename + ' ' : ''}${lastname}`,
-        email,
-        password,
+      console.log("Values in registereduser",values);
+      const registeredData = {
+        firstname: values.firstname,
+        middlename: values.middlename,
+        lastname: values.lastname,
+        country: values.country,
+        contactNumber: values.contactNumber,  // Corrected field name
+        program: values.program,
+        candidateCategory: values.candidateCategory,   // Corrected field name
+        startDate: values.startDate,          // Corrected field name
       };
-
+      const resp = await axios.post("http://localhost:8080/api/v1/user/registereduser", registeredData);
+      
+      const postData = {
+        name: `${values.firstname} ${values.middlename ? values.middlename + ' ' : ''}${values.lastname}`,
+        email:values.email,
+        password:values.password,
+      };
+      console.log("post data" , postData);
       const res = await axios.post("http://localhost:8080/api/v1/user/register", postData);
       if (res.data.success) {
         message.success("Register Successfully!");
@@ -52,13 +61,13 @@ const Register = () => {
           <Form.Item label="Password" name="password" required>
             <Input type="password" />
           </Form.Item>
-          <Form.Item label="Country" name="country">
+          <Form.Item label="Country" name="country" required>
             <Input type="text" />
           </Form.Item>
-          <Form.Item label="Contact Number" name="contactNumber">
+          <Form.Item label="Contact Number" name="contactNumber" required>
             <Input type="text" />
           </Form.Item>
-          <Form.Item label="Program Name" name="programName" required>
+          <Form.Item label="Program Name" name="program" required>
             <Select placeholder="Select Program">
               <Option value="Introduction Programme">Introduction Programme [6 Hrs]</Option>
               <Option value="Diploma Programme">Diploma Programme [12 Courses]</Option>

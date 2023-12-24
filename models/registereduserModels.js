@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const registereduserSchema = new mongoose.Schema({
   firstname: {
     type: String,
     required: [true, "firstname is require"],
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "country is require"],
   },
-  contact: {
+  contactNumber: {
     type: String,
     required: [true, "contact is require"],
   },
@@ -24,16 +24,16 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "program is require"],
   },
-  category: {
+  candidateCategory: {
     type: String,
     required: [true, "category is require"],
   },
-  startdate: {
+  startDate: {
     type: Date,
     required: [true, "startdate is require"],
   },
 });
 
-const registereduserModel = mongoose.model("users", userSchema);
+const registereduserModel = mongoose.model("registeredusers", registereduserSchema);
 
 module.exports = registereduserModel;

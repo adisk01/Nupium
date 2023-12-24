@@ -29,43 +29,39 @@ const registerController = async (req, res) => {
 };
 //registered user controller
 
-const registereduserController= async (req, res) => {
+
+const registereduserController = async (req, res) => {
   try {
-    // Extract data from the request body
-    const {
-      firstname,
-      middlename,
-      lastname,
-      country,
-      contact,
-      program,
-      category,
-      startdate,
-    } = req.body;
+    console.log("Inside registeredcontroller", req.body);
 
-    // Create a new instance of the registereduserModel
-    const newUser = new registereduserModel({
-      firstname,
-      middlename,
-      lastname,
-      country,
-      contact,
-      program,
-      category,
-      startdate,
-    });
+    // Check for required fields
+    const requiredFields = ['firstname', 'lastname', 'country', 'contactNumber', 'program', 'candidateCategory', 'startDate'];
+    const missingFields = requiredFields.filter(field => !req.body[field]);
 
-    // Save the user to the database
-    const savedUser = await newUser.save();
+    if (missingFields.length > 0) {
+      return res.status(400).send({
+        success: false,
+        message: `Missing required fields: ${missingFields.join(', ')}`,
+      });
+    }
 
-    res.json({ success: true, message: "User registered successfully", data: savedUser });
+    const newregistereduser = new registereduserModel(req.body);
+    await newregistereduser.save();
+    res.status(201).send({ message: "Registereduser Successfully", success: true });
   } catch (error) {
-    console.error("Error during user registration:", error);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: `Register Controller ${error.message}`,
+    });
   }
-}
+};
+
+
+
 // login callback
 const loginController = async (req, res) => {
+  
   try {
     const user = await userModel.findOne({ email: req.body.email });
     if (!user) {

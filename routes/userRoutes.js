@@ -9,13 +9,17 @@ const authMiddlewares = require("../middlewares/authMiddlewares");
 
 //router onject
 const router = express.Router();
-router.post("/registereduser",registereduserController);
+
 //routes
 //LOGIN || POST
 router.post("/login", loginController);
 
 //REGISTER || POST
 router.post("/register", registerController);
+
+//REGISTEREDUSER || POST
+router.post("/registereduser",registereduserController);
+
 //AUTH || POST
 router.post('./getUserData',authMiddlewares,authController)
 module.exports = router;
