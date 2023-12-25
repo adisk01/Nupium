@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import './account.css'; // Import your existing CSS file
-
+import './account.css';
 const Account = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -14,9 +13,8 @@ const Account = () => {
   };
 
   const handlePasswordChange = () => {
-    // Implement your password change logic here
-    // You can call an API or perform any other necessary actions
-    closeModal(); // Close the modal after the password change is successful
+
+    closeModal(); 
   };
 
   return (

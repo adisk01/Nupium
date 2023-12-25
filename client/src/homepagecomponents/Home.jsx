@@ -8,9 +8,9 @@ const Home = () => {
     height: '100vh',
     fontSize: '24px',
     textAlign: 'center',
-    fontStyle: 'italic',  // Example: Italic font style
-    color: '#333',        // Example: Dark gray text color
-    // Add more styles as needed
+    fontStyle: 'italic',  
+    color: '#333',        
+
   };
 
   return (

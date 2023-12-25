@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './support.css'; // Import your existing CSS file
+import './support.css'; 
 
 const Support = () => {
   const [subject, setSubject] = useState('');
