@@ -38,7 +38,8 @@ const Register = () => {
       } else {
         message.error(res.data.message);
       }
-    } catch (error) {
+    } 
+    catch (error) {
       console.log(error);
       message.error("Something Went Wrong");
     }
