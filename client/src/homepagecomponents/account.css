@@ -26,7 +26,7 @@
   span {
     flex-grow: 1;
   }
-  /* Add this to your existing CSS file or create a new one for account styles */
+
 
 .change-password-container {
     padding: 20px;
@@ -76,7 +76,7 @@
   .change-password-btn:hover {
     background-color: #0056b3;
   }
-/* Add these styles to your existing CSS file or create a new one */
+
 
 .modal-overlay {
     position: fixed;
@@ -98,5 +98,5 @@
     width: 100%;
   }
   
-  /* Add any additional styles as needed */
+
     

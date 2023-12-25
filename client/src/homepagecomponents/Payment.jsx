@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import './payment.css'; // Import your existing CSS file
+import './payment.css'; 
 
 const Payment = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +14,7 @@ const Payment = () => {
   };
 
   const handleDownloadInvoice = () => {
-    // Implement logic to download the invoice PDF
+    
   };
 
   return (
@@ -44,7 +44,7 @@ const Payment = () => {
         </div>
       </div>
 
-      {/* Download Invoice Modal */}
+
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
@@ -57,7 +57,7 @@ const Payment = () => {
             <h2>Download Invoice</h2>
           </div>
           <div className="download-invoice-content">
-            {/* Content for downloading the invoice PDF */}
+   
             <button onClick={handleDownloadInvoice}>Download Invoice PDF</button>
           </div>
         </div>
