@@ -11,59 +11,59 @@ import {
 } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 
-import './Sidebar.css'; 
+import './Sidebar.css';
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen (!isOpen);
+  const toggle = () => setIsOpen(!isOpen);
 
   const menuItem = [
     {
       title: 'Home',
       path: '/',
-      icon:<FaTh/>,
+      icon: <FaTh />,
       cName: 'nav-text'
     },
     {
       title: 'Account',
       path: '/myaccount',
-      icon:<FaTh/>,
+      icon: <FaTh />,
       cName: 'nav-text'
     },
     {
       title: 'Payment',
       path: '/payment',
-      icon:<FaTh/>,
+      icon: <FaTh />,
       cName: 'nav-text'
     },
     {
       title: 'SubscriptionValidity',
       path: '/subscriptionvalidity',
-      icon:<FaTh/>,
+      icon: <FaTh />,
       cName: 'nav-text'
     },
     {
       title: 'Sessionhistory',
       path: '/sessionhistory',
-      icon:<FaTh/>,
+      icon: <FaTh />,
       cName: 'nav-text'
     },
     {
       title: 'Courses',
       path: '/courses',
-      icon:<FaTh/>,
+      icon: <FaTh />,
       cName: 'nav-text'
     },
     {
       title: 'Support',
       path: '/support',
-      icon:<FaTh/>,
+      icon: <FaTh />,
       cName: 'nav-text'
     },
     {
       title: 'Help',
       path: '/help',
-      icon:<FaTh/>,
+      icon: <FaTh />,
       cName: 'nav-text'
     }
   ];

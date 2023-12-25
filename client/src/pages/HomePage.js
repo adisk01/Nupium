@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Sessionhistory from '../homepagecomponents/Sessionhistory';
 import Support from '../homepagecomponents/Support';
 import SubscriptionValidity from '../homepagecomponents/SubscriptionValidity';
@@ -12,9 +12,10 @@ import Home from '../homepagecomponents/Home';
 
 const HomePage = () => {
   return (
-    <Sidebar>
+<Sidebar>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/myaccount" element={<Account />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/help" element={<Help />} />
         <Route path="/payment" element={<Payment />} />
@@ -23,6 +24,9 @@ const HomePage = () => {
         <Route path="/subscriptionvalidity" element={<SubscriptionValidity />} />
       </Routes>
     </Sidebar>
+   
+
+ 
   );
 }
 
