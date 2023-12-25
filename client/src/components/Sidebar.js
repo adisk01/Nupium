@@ -6,11 +6,6 @@ import {
   FaTh,
   FaBars,
   FaSignOutAlt,
-  FaUserAlt,
-  FaRegChartBar,
-  FaCommentAlt,
-  FaShoppingBag,
-  FaThList
 } from 'react-icons/fa';
 import { Button } from 'antd';
 
@@ -79,7 +74,7 @@ const Sidebar = ({ children }) => {
       icon: <FaSignOutAlt />,
       cName: 'nav-text',
     },
-    
+
   ];
 
   return (
@@ -87,7 +82,13 @@ const Sidebar = ({ children }) => {
       <div className={`container ${isOpen ? 'open' : 'closed'}`}>
         <div className="sidebar">
           <div className="top_section">
-            <h1 className={`logo ${isOpen ? 'visible' : 'hidden'}`}>Logo</h1>
+            {/* <h1 className={`logo ${isOpen ? 'visible' : 'hidden'}`}>Logo</h1> */}
+            <img
+              className={`logo ${isOpen ? 'visible' : 'hidden'}`}
+              src="./images/nupiumlogo.jpeg"  // Replace with the path to your photo
+              alt="Profile Photo"
+              style={{ height: '80px', width: '80px' }} 
+            />
             <div className="bars">
               <FaBars onClick={toggle} />
             </div>
@@ -95,7 +96,7 @@ const Sidebar = ({ children }) => {
           {menuItem.map((item, index) => (
             item.title === 'Logout' ? (
               <Button key={index} onClick={handleLogout} >
-               <div className="iconlogout">{item.icon} Logout</div>
+                <div className="iconlogout">{item.icon} Logout</div>
               </Button>
             ) : (
               <NavLink

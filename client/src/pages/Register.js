@@ -38,7 +38,7 @@ const Register = () => {
       } else {
         message.error(res.data.message);
       }
-    } 
+    }
     catch (error) {
       console.log(error);
       message.error("Something Went Wrong");
@@ -47,6 +47,11 @@ const Register = () => {
 
   return (
     <>
+      <img
+        src="./images/nupiumlogo.jpeg"  // Replace with the path to your photo
+        alt="Profile Photo"
+        style={{ height: '80px', width: '80px' }}
+      />
       <div className="form-container">
         <Form layout="vertical" onFinish={onfinishHandler} className="register-form">
           <h3 className="text-center">Register Form</h3>

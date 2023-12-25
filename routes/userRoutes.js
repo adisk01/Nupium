@@ -21,5 +21,5 @@ router.post("/register", registerController);
 router.post("/registereduser",registereduserController);
 
 //AUTH || POST
-router.post('./getUserData',authMiddlewares,authController)
+router.post('./getUserData', authMiddlewares ,authController)
 module.exports = router;
