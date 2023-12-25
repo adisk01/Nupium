@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import {
   FaTh,
@@ -11,16 +11,15 @@ import {
   FaCommentAlt,
   FaShoppingBag,
   FaThList
-} from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+} from 'react-icons/fa';
+import { Button } from 'antd';
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate(); // Move useNavigate here
+  const navigate = useNavigate();
   const toggle = () => setIsOpen(!isOpen);
 
   const handleLogout = () => {
-    // Implement your logout logic here
     console.log('Logout button clicked');
     localStorage.removeItem('token');
     navigate('/login');
@@ -79,8 +78,8 @@ const Sidebar = ({ children }) => {
       title: 'Logout',
       icon: <FaSignOutAlt />,
       cName: 'nav-text',
-      onClick: handleLogout
     },
+    
   ];
 
   return (
@@ -94,12 +93,23 @@ const Sidebar = ({ children }) => {
             </div>
           </div>
           {menuItem.map((item, index) => (
-            <div key={index} className="link" onClick={item.onClick}>
-              <div className="icon">{item.icon}</div>
-              <div className={`link_text ${isOpen ? 'visible' : 'hidden'}`}>
-                {item.title}
-              </div>
-            </div>
+            item.title === 'Logout' ? (
+              <Button key={index} onClick={handleLogout} >
+               <div className="iconlogout">{item.icon} Logout</div>
+              </Button>
+            ) : (
+              <NavLink
+                key={index}
+                to={item.path}
+                className="link"
+                activeClassName="active"
+              >
+                <div className="icon">{item.icon}</div>
+                <div className={`link_text ${isOpen ? 'visible' : 'hidden'}`}>
+                  {item.title}
+                </div>
+              </NavLink>
+            )
           ))}
         </div>
         <main>{children}</main>
@@ -109,3 +119,4 @@ const Sidebar = ({ children }) => {
 };
 
 export default Sidebar;
+

@@ -34,8 +34,16 @@ main{
   display: flex;
   color: #fff;
   padding: 10px 15px;
+  
   gap: 15px;
   transition: all 0.5s;
+}
+.iconlogout
+{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 90;
 }
 .link:hover{
   background:lightskyblue;
